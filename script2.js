@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+
 const { managerQuestions, internQuestions, engineerQuestions, mutiQuestion } = require('./prompt');
 const fileManager = './UserInputjson.json/ilovecoraline.json'
 const fileEngineer = './UserInputjson.json/Engineer.json'
@@ -56,14 +57,30 @@ const Engineer = (answers) => {
         answers.id,
         answers.email,
         answers.github
-    console.log(answers.name, "line 48");
     console.log(`\n${answers.name} added to the team!\n`)
 }
 async function addEngineer() {
     console.log('\nPlease enter Engineer information:');
     const answers = await inquirer.prompt(engineerQuestions);
     Engineer(answers);
-    writeToFile(fileEngineer, answers)
+    fs.stat(fileEngineer, (err, stats) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      
+        if (stats.size === 0) {
+            writeToFile(fileEngineer,answers)
+        } else {
+          console.log('File has content');
+          readTheFile(fileEngineer,answers)
+        }
+      });
+
+
+
+
+
 }
 
 // Function to add an Intern to the team
@@ -87,12 +104,30 @@ async function init() {
 }
 //write to files
 
-
-
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, JSON.stringify(data, null, 2), (err) =>
         err ? console.log(err) : console.log('works')
     );
 
 }
+function readTheFile(fileEngineer,answers){
+    console.log('dude go sleep');
+fs.writeFileSync(`./UserInputjson.json/Engineer.json`,data,'utf-8'){
+   
+    console.log(data,'hi');
+
+    const jsonData = JSON.parse(data);
+    console.log(answers);
+    jsonData.push(answers)
+    console.log(answers, 'json');
+    console.log(jsonData, 'hi matthew');
+   const updatedData = jsonData
+ 
+
+writeToFile(fileEngineer, updatedData)
+return
+
+}
+
+
 init()

@@ -1,3 +1,8 @@
 
 
-console.log(questions)
+
+
+
+
+
+module.exports = writeToFile()
