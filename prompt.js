@@ -1,3 +1,4 @@
+
 // Questions for the Manager
 
 const managerQuestions = [
@@ -22,6 +23,7 @@ const managerQuestions = [
       message: "What is the Manager's office number?",
     },
   ];
+  
   const mutiQuestion = [
       {
           name: 'confirm',
@@ -83,4 +85,9 @@ const managerQuestions = [
     },
   ];
 
-  module.exports = (managerQuestions)
+  module.exports = {
+    managerQuestions,
+    internQuestions,
+    engineerQuestions,
+    mutiQuestion,
+  };
