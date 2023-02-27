@@ -1,6 +1,7 @@
-
+const fs = require('fs')
 const inquirer = require('inquirer')
-const fs = require('./functions/function')
+const methods = require('./functions/function')
+const managerFile = 'managerFile.js';
 
 
 
@@ -46,6 +47,7 @@ let questions = function() {
 
         .then(function data(data) {
             console.log(data)
+            writeToFile(managerFile, data)
             if (data.confirm == `egineer`) {
                 inquirer
                     .prompt([
@@ -86,14 +88,16 @@ let questions = function() {
                    
                
                     .then(data => {
-
-                    console.log(data);
+                        if (data.confirm = 'all done.') {
+                            return console.error('work has been addeddddd')
+        
+                        }
 
                 })
+                
             }
             else if (data.confirm = 'all done.') {
-                
-
+                return console.error('all done number 4')
 
             }
             else if (data.confirm == `intern`) {
@@ -136,12 +140,12 @@ let questions = function() {
 
 
 
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, (err) =>
-//         err ? console.log(err) : console.log('works')
-//     );
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.log(err) : console.log('works')
+    );
 
-// }
+}
 
 
 function init() {
