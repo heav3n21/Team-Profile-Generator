@@ -52,17 +52,19 @@ const muti = (answers) => {
 
 
 
-const Engineer = (answers) => {
-    answers.name,
-        answers.id,
-        answers.email,
-        answers.github
-    console.log(`\n${answers.name} added to the team!\n`)
+  function Engineer ({name,id,email,github}){
+ 
+    this.name = name ;
+    this.id = id;
+    this.email = email;
+    this.github = github;
+    console.log(`\n${name} added to the team!\n`)
 }
 async function addEngineer() {
     console.log('\nPlease enter Engineer information:');
     const answers = await inquirer.prompt(engineerQuestions);
-    Engineer(answers);
+    const person = new Engineer(answers);
+    console.log(person);
     fs.stat(fileEngineer, (err, stats) => {
         if (err) {
           console.error(err);
@@ -70,10 +72,12 @@ async function addEngineer() {
         }
       
         if (stats.size === 0) {
-            writeToFile(fileEngineer,answers)
+            console.log(person,"yo");
+            writeToFile(fileEngineer,person)
         } else {
           console.log('File has content');
-          readTheFile(fileEngineer,answers)
+          console.log(person,"yoooooo");
+          readTheFile(fileEngineer,person)
         }
       });
 
@@ -112,22 +116,32 @@ function writeToFile(fileName, data) {
 }
 function readTheFile(fileEngineer,answers){
     console.log('dude go sleep');
-fs.writeFileSync(`./UserInputjson.json/Engineer.json`,data,'utf-8'){
-   
-    console.log(data,'hi');
-
+fs.readFile(`./UserInputjson.json/Engineer.json`,'utf-8',(err,data)=>{
+    if (err) {
+        throw err;
+    }
     const jsonData = JSON.parse(data);
-    console.log(answers);
     jsonData.push(answers)
-    console.log(answers, 'json');
-    console.log(jsonData, 'hi matthew');
-   const updatedData = jsonData
- 
+    console.log("bitch",answers);
 
-writeToFile(fileEngineer, updatedData)
-return
+    console.log(jsonData,'hi');
+
+
+})
+   
+
+//     console.log(answers);
+    
+//     console.log(answers, 'json');
+//     console.log(jsonData, 'hi matthew');
+//    const updatedData = jsonData
+
+
+// writeToFile(fileEngineer, updatedData)
+// return
 
 }
+
 
 
 init()
