@@ -1,24 +1,28 @@
-const Manager = require('./managerClass')
 
+const inquirer = require("inquirer");
+const { managerQuestions, internQuestions, engineerQuestions, mutiQuestion } = require(`../prompt`);
+const Manager = require("./managerClass");
 
 
 
 class employee {
-    constructor(name, id, email) {
+    constructor(name, manager, email) {
         this.name = name,
-            this.id = id,
+        
+
+            this.manager = manager,
             this.email = email
+           
     }
 
-    getID(){}
 
-    getEmail(){}
+    getID() { }
 
-    getRole(){}
-    gitHub(){}
+    getEmail() { }
+
+    getRole() { }
+    gitHub() { }
 
 
 }
-
 module.exports = employee
-
