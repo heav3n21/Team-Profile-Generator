@@ -30,7 +30,7 @@ const managerQuestions = [
           type: 'list',
           message: 'Would you like to add a egineer or an itern or would you like to finish building your team?',
           choices: [
-              'egineer',
+              'engineer',
               'intern',
               'complete build',
           ]

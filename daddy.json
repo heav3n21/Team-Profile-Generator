@@ -1,9 +1,6 @@
 {
-  "manager": {
-    "name": "asd",
-    "managerID": "adas",
-    "email": "asd",
-    "officeNumber": "ads"
-  },
-  "user": "manager"
+  "name": "d",
+  "id": "d",
+  "email": "d",
+  "officeNumber": "d"
 }

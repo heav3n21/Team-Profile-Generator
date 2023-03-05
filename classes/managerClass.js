@@ -1,6 +1,8 @@
 const inquirer = require('inquirer')
-const employee = require('./employeeClass.js')
+// const employee = require('./employeeClass.js')
+const {employee,getPostion} = require('./employeeClass.js')
 const fs = require('fs')
+
 
 class Manager extends employee{
     
@@ -12,8 +14,8 @@ class Manager extends employee{
         
     }
 
-    getRole(){
-    }
+    // getRole(){
+    // }
 
     async start(x){
          console.log("it started",x)
@@ -40,9 +42,13 @@ class Manager extends employee{
         },
       ];
       const answers = await inquirer.prompt(managerQuestions);
-       const manager = new Manager(answers)
+       const manager = new Manager(answers.managerID,answers.officeNumber,answers.name,answers.email,)
        console.log(manager.email,'line 12')
+       manager.getRole()
       writeToFile('./daddy.json', manager)
+      getPostion()
+      
+     
     
     
     
