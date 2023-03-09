@@ -42,40 +42,40 @@ const Listpostion = [
 
 
 
-async function RoleQuestions(workPostion){
-    
- return await inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: `What is the ${workPostion}s name?`,
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: `What is the ${workPostion}s ID?`,
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: `What is the ${workPostion}s email address?`,
-    },
-    {
-        type: 'input',
-        name: 'github',
-        message: `What is the ${workPostion}'s GitHub username?`,
-        when: () => workPostion == `engineer`
+async function RoleQuestions(workPostion) {
 
-    },
-    {
-        type: 'input',
-        name: 'school',
-        message: `Where does the ${workPostion} attend School`,
-        when: () => workPostion == `intern`
+    return await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: `What is the ${workPostion}s name?`,
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: `What is the ${workPostion}s ID?`,
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: `What is the ${workPostion}s email address?`,
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: `What is the ${workPostion}'s GitHub username?`,
+            when: () => workPostion == `engineer`
 
-    },
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: `Where does the ${workPostion} attend School`,
+            when: () => workPostion == `intern`
 
-])
+        },
+
+    ])
 }
 module.exports = {
     managerQuestions,

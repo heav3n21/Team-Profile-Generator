@@ -6,6 +6,16 @@ class Employee {
 
 
     }
+    getName(){
+        return `his name is ${this.name}`
+    }
+getemail(){
+    return `his email is ${this.email}`
+}
+getRole(){
+    return `Employee`
+}
+
 }
 
 
